@@ -1,0 +1,523 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="icon" href="{% static 'media/images/N-Image.png' %}">
+
+        <style>
+            .no-js #loader { display: none;  }
+            .js #loader { display: block; position: absolute; left: 100px; top: 0; }
+            .se-pre-con {
+                position: fixed;
+                left: 0px;
+                top: 0px;
+                width: 100%;
+                height: 100%;
+                z-index: 9999;
+                background: url("{% static 'media/gif/91.gif' %}") center no-repeat #fff;
+            }
+        </style>
+
+        <!-- Google Fonts -->
+        <link rel="stylesheet" href="{% static 'fonts/google fonts/Open_Sans_Condensed/OpenSansCondensed-Light.ttf' %}">
+        <link rel="stylesheet" href="{% static 'fonts/google fonts/Roboto_Condensed/RobotoCondensed-Light.ttf' %}">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{% static 'styles/bootstrap-4.5.0/css/bootstrap.min.css' %}" >
+        <link rel="stylesheet" href="{% static 'fonts/fontawesome-5.14.0/css/all.min.css' %}">
+        <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+        <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
+        
+        <title>Noel Kimwatan</title>
+
+    </head>
+
+    <body data-spy="scroll" data-target="#navbarscroll" data-offset="50" id="bodyid"  >
+        <div class="se-pre-con"></div>
+    
+<!--Start of  Jumbotron-->
+        <div class="jumbotron jumbotron-fluid vertical_center" id="home">
+
+            <div class="container-fluid " id="header_container">
+
+                <div class="row">
+                    <div class="col-12 horizontal_center">
+                        <h1 id="header_name" >NOEL KIMWATAN</h1>
+                    </div>
+                </div>
+
+                <div class="row mt-3 ">
+                    <div class="col-12 horizontal_center ">
+
+                        <div class="carousel  carousel-fade " data-ride="carousel" data-interval="2000">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active ">
+                                    <h1 id="header_description">WEB DEVELOPER</h1>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <h1 id="header_description">MACHINE LEARNING DEVELOPER</h1>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <h1 id="header_description">ELECTRICAL ENGINEER</h1>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <h1 id="header_description">TECH ENTHUSIAST</h1>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row  mt-5" style="height:70px">
+                    <div class="col-12 horizontal_center">
+                        <a href="https://twitter.com/noelkimwatan" class="header_icons_link" target="_blank"> 
+                            <i class="fab fa-twitter" id="header_social"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/noel-kimwatan" class="header_icons_link"target="_blank">
+                            <i class="fab fa-linkedin-in" id="header_social"></i>
+                        </a>
+                        <a href="https://github.com/NoelKimwatan" class="header_icons_link" target="_blank">
+                            <i class="fab fa-github" id="header_social"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+<!--Start of  Jumbotron-->
+        
+
+<!--Start of NavBar-->
+        <nav class="navbar smart-scroll  navbar-expand-sm sticky-top" id="navbarscroll">
+
+                <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbar_header">
+                        <span class="navbar-toggler-icon center_text_flex">
+                            <i class="fas fa-bars navbar_dopdown_icon"></i>
+                        </span>
+                </button>
+
+                <div class="navbar-collapse collapse" id="navbar_header">
+                        <ul class="nav navbar-nav mx-auto">
+                            <li class="nav-item ">
+                                <a class="nav-link active" href="#home">HOME</a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="#about">ABOUT</a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="#resume">RESUME</a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="#portfolio">PORTFOLIO</a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="{% url 'blog' %}">BLOG</a>
+                            </li>
+                        </ul>
+                </div>
+        </nav>
+
+<!--End of NavBar-->       
+
+<!--Start of About Section-->  
+        <section id="about">
+            <div class="container vertical_center section_container">
+
+                <div class="row mt-3" id="about_row">
+                    {% for about in abouts %}
+                        <div class="col-sm-12 col-lg-4 horizontal_center mb-5">
+
+                            <img src="{{about.my_image.url }}" style="width:100%; height:auto;">
+                        </div>
+
+                        <div class="col-sm-12 col-lg-8">
+                            <h2 class="text-center pt-0 mt-0 mb-4 " id="aboutmeheader">ABOUT ME</h2>
+
+                            {{ about.description|safe|linebreaks}}
+
+                            <div class="horizontal_center mb-5">
+
+                                <a type="button" class="btn btn-outline-dark mx-3 mt-5" href="mailto:noelkimwatan@gmail.com">
+                                    Email Me
+                                </a>
+
+                                <a type="button" href="#portfolio" class="btn btn-outline-dark mx-3 mt-5" >
+                                    See My Portfolio
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                {% endfor %}
+
+                </div>
+            </div>
+        </section>
+<!--End of About Section-->
+        <hr/>
+<!--Start of Porfolio Section-->
+        <section id="portfolio">
+            <div class="container section_container">
+
+                <div class="row justify-content-center">
+                    <div class="col-12 text-center">
+                        <h2 class="my-3">RECENT PROJECTS</h2>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+
+                    <div class="col-auto">
+
+                        <button type="button" class="btn btn-outline-dark  mt-3 filter-button-2 all-button">
+                            ALL
+                        </button>
+                    </div>
+
+                    <div class="col-auto">
+                        <button type="button" class="btn btn-outline-dark  mt-3 filter-button-2 web-button">
+                            WEB DEVELOPMENT
+                        </button>
+                    </div>
+
+                    <div class="col-auto">
+                        <button type="button" class="btn btn-outline-dark  mt-3 filter-button-2 machinelearning-button">
+                            MACHINE LEARNING
+                        </button>
+                    </div>
+
+                    <div class="col-auto">
+                        <button type="button" class="btn btn-outline-dark  mt-3 filter-button-2 electronics-button">
+                            ELECTRONICS
+                        </button>
+                    </div>
+
+                    
+
+                </div>
+
+    <!--Start of Portfolio Rows-->
+
+                {% for project in projects  %}
+
+                        <div class="row my-5 all filter-2 {{ project.tag1 }} {{ project.tag2 }} {{ project.tag3 }}" style="min-height: 250px;">
+                        
+                            <div class="col-12 col-md-6">
+                                <img src="{{ project.image.url }}" style="width:100%; height:auto">
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                                <div class="row mb-1">
+
+                                    <div class="col-12 col-md-auto">
+                                        <h4>{{ project.title|upper }}</h4>
+                                    </div>
+
+                                    <div class="col-12 col-md-auto">
+                                        <div class="row mt-1 ">
+
+                                            <a class=" col-auto  project-links" href="{{ project.github }}">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <i class="fab fa-github"></i> Github
+                                                    </div>
+                                                </div>
+                                            </a>
+
+                                            <a class=" col-auto project-links" href="{{ project.live_link }}">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <i class="fas fa-external-link-alt"></i>  Live Site
+                                                    </div>
+                                                </div>
+                                            </a>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="row">
+                                            {% if project.tag1 %}
+                                                <div class="col-auto"> 
+                                                    <h6>#{{project.tag1|upper}}</h6>                                        
+                                                </div>
+                                            {% endif %}
+
+                                            {% if project.tag2 %}
+                                                <div class="col-auto"> 
+                                                    <h6>#{{project.tag2|upper}}</h6>                                        
+                                                </div>
+                                            {% endif %}
+
+                                            {% if project.tag3 %}
+                                                <div class="col-auto"> 
+                                                    <h6>#{{project.tag3|upper}}</h6>                                        
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        {{ project.description|safe|linebreaks  }}
+                                    </div>
+                                </div>
+
+                            </div>
+
+                    </div>
+                {% endfor %}
+
+            </div>
+        </section>
+<!--End of Portfolio Rows-->
+
+<!--Start of Resume Section-->
+        <section id="resume">
+
+            <div class="container section_container" >
+
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <h2 class="my-4 text-center">RESUME</h2>
+                    </div> 
+                </div>
+
+                <div class="row justify-content-center">
+
+                    <div class="col-auto">
+                        <button type="button" class="btn btn-outline-dark mx-2 mt-3  experience-button filter-button" data-filter="education">
+                                EXPERIENCE
+                        </button>
+                    </div>
+
+                    <div class="col-auto" >
+                        <button type="button" class="btn btn-outline-dark mx-2 mt-3  education-button filter-button" data-filter="education">
+                                EDUCATION
+                        </button>
+                    </div>
+
+                    <div class="col-auto" >
+                        <button type="button" class="btn btn-outline-dark mx-2 mt-3  certification-button filter-button" data-filter="certification">
+                                CERTIFICATION
+                        </button>
+                    </div>
+
+                </div>
+
+    <!-- Experience Row in Resume Section-->
+
+                <div class="row filter experience">
+
+                    <div class="col-12">
+                        <ul style="list-style:none;" class="p-0">
+                            {% for experience in experiences  %}
+
+                                <li class="mt-5 ">
+                                    <div class="row experience_row ">
+                                        <div class="col-md-4 time ">
+                                            <span class="experince_date"> {{ experience.start_date|date:"F  Y"|upper }} </span> -
+
+                                            {% if experience.end_date %}
+                                                <span class="experince_date">{{ experience.end_date|date:"F  Y"|upper }}</span>
+                                            {% else %} 
+                                                <span class="experince_date">PRESENT</span>
+                                            {% endif %}
+
+                                            <i class="fa fa-briefcase experience-icon d-none d-md-block" aria-hidden="true"></i>
+                                        </div>
+                                        
+                                        <div class="col-md-8 experience-detail" >
+                                            <h4>{{ experience.title|upper }}</h4>
+                                            <h6>{{ experience.role }}</h6>
+
+                                            {{ experience.description|safe|linebreaks }}
+
+                                        </div>
+                                    </div>
+                                </li>
+            
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                </div>
+
+    <!-- Education Row in Resume Section-->
+
+                <div class="row filter education">
+
+                    <div class="col-12">
+                        <ul style="list-style:none;" class="p-0">
+                            {% for education in educations  %}
+
+                                <li class="mt-5 ">
+                                    <div class="row experience_row ">
+                                        <div class="col-md-4 time">
+                                            <span class="experince_date"> {{ education.start_date|date:"F  Y"|upper }} </span> -
+
+                                            
+                                                
+                                            
+                                                {% if education.end_date  %}
+                                                    <span class="experince_date">{{ education.end_date|date:"F  Y"|upper }}</span>  
+                                                {% else %}
+                                                    <span class="experince_date">PRESENT</span> 
+                                                {% endif %}
+                                            
+
+                                            <i class="fa fa-briefcase experience-icon d-none d-md-block" aria-hidden="true"></i>
+                                        </div>
+                                        
+                                        <div class="col-md-8 experience-detail" >
+                                            <h4>{{ education.title|upper }}</h4>
+                                            <h6>{{ education.certificate }}</h6>
+
+                                            {{ education.description|safe|linebreaks }}
+
+                                        </div>
+                                    </div>
+                                </li>
+            
+                            {% endfor %}
+
+                        </ul>
+                    </div>
+                </div>
+
+    <!-- Certification Row in Resume Section -->
+
+                <div class="row filter certification">
+
+                    <div class="col-12">
+                        <ul style="list-style:none;" class="p-0">
+
+                            {% for certification in certifications  %}
+
+                                <li class="mt-5 ">
+                                    <div class="row experience_row ">
+                                        <div class="col-md-4 time ">
+                                            <span class="experince_date"> {{ certification.date_earned|date:"F  Y"|upper }} </span> 
+
+                                            <i class="fa fa-briefcase experience-icon d-none d-md-block" aria-hidden="true"></i>
+                                        </div>
+                                        
+                                        <div class="col-md-8 experience-detail" >
+                                            <h4>{{ certification.title|upper }}</h4>
+                                            <div class="row mb-2 mt-1">
+                                                <div class="col-auto">
+                                                    <h6>{{ certification.institution }}</h6>
+                                                </div>
+
+
+                                                {% if certification.certificate_link %}
+                                                    <div class="col-auto">
+                                                        <a class="project-links" href="{{certification.certificate_link}}">
+                                                            <i class="fas fa-external-link-alt ml-3 mr-1"></i>  Certificate
+                                                        </a>
+                                                    </div>
+                                                {% endif %}
+
+                                                
+                                            </div>
+
+                                            {{ certification.description|safe|linebreaks }}
+
+                                        </div>
+                                    </div>
+                                </li>
+            
+                            {% endfor %}
+                      
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="row ">
+
+                    <div class="col mb-5 horizontal_center">
+                        
+                            <a href="{{ resume.file.url }}"  id="ResumeDownloadButton" >
+                                <button type="button" class="btn btn-outline-dark mx-4 mt-5" >
+                                    Download Resume 
+                                    <i class="fas fa-download ml-3"></i>
+                                </button>           
+                            </a>
+
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+
+        </section>
+<!--End of Resume Section-->
+
+        <hr>
+
+
+        <footer class="bg-dark vertical-center">
+            <div class="container" id="footer_container">
+
+                <div class="row" style="height:100%;" >
+                    <div class="col-12 horizontal_center vertical_center">
+
+                        <a href="https://twitter.com/noelkimwatan" target="_blank" id="footer_icons_link" target="_blank">
+                            <i class="fab fa-twitter"  id="footer_icons"></i>
+                        </a>
+
+                        <a href="https://linkedin.com/in/noel-kimwatan" target="_blank" id="footer_icons_link" target="_blank">
+                            <i class="fab fa-linkedin-in"  id="footer_icons"></i>
+                        </a>
+
+                        <a href="https://github.com/NoelKimwatan" target="_blank" id="footer_icons_link" target="_blank">
+                            <i class="fab fa-github"  id="footer_icons"></i>
+                        </a>
+
+                        <a href="mailto:noelkimwatan@gmail.com" id="footer_icons_link" target="_blank">
+                            <i class="far fa-envelope"  id="footer_icons"></i>
+                        </a>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </footer>
+
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="{% static 'js/jquery/dist/jquery.min.js' %}"></script>
+        <script src="{% static 'js/popper.js/dist/popper.min.js' %}"></script>
+        <script src="{% static 'styles/bootstrap-4.5.0/js/bootstrap.bundle.min.js' %}"></script>
+        <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <script src="{% static 'js/javascript.js' %}"></script>
+
+
+
+    
+
+    </body>
+
+</html>
